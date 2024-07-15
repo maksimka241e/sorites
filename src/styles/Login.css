@@ -1,0 +1,167 @@
+.BlockLogin{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+.BlockRegister{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+.mainLogin{
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+    width: 100%;
+}
+.mainBlockLogin{
+    background-image: url('https://get.wallhere.com/photo/1920x1080-px-city-cityscape-Dubai-mist-skyscraper-urban-1329679.jpg');
+    background-size: cover;
+    height: 94vh;
+    position: relative;
+    margin: auto;
+    width: 98%;
+}
+.mainSectionLogin{
+    border-left: 1px solid #ffffffcf;
+    position: relative;
+    padding: 25px;
+    background: #ffffff;
+    max-width: 310px;
+    width: 100%;
+    height: 38%;
+    margin: 200px auto;
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2);
+-moz-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2);
+box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2);
+}
+.titleLogin{
+    text-align: center;
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+}
+.emailLogin{
+    font-size: 15px;
+    margin: 0;
+    padding-bottom: 3px;
+    color: #212121;
+    font-weight: 400;
+}
+.passwordLogin{
+    font-size: 15px;
+    padding-top: 20px;
+    margin: 0;
+    padding-bottom: 3px;
+    color: #212121;
+    font-weight: 400;
+}
+.inputLogin{
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 15px;
+    border: 1px solid #21212188;
+    width: 90%;
+    transition: all 0.4s;
+}
+.inputLogin:hover{
+    transition:all 0.4s;
+    border: 1px solid #646cff;;
+}
+.inputLogin:focus{
+    transition:all 0.4s;
+    outline:none;
+    border: 1px solid #646cff;;
+}
+.buttonLogin{
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: 1px solid #646cff;
+    width: 100%;
+    background: #646cff;
+    color: #ffffff;
+    margin-top: 30px;
+    transition: all 0.4s;
+}
+.buttonLogin:hover{
+    border: 1px solid #646cff;
+    background: #ffffff;
+    color: #646cff;
+}
+.buttonLogin:focus{
+    border: 1px solid #646cff;
+    background: #ffffff;
+    color: #646cff;
+}
+.textLogin{
+    text-align: center;
+    margin-top: 10px;
+    color: #212121;
+    font-size: 15px;
+    font-weight: 400;
+}
+.cloud img {
+    width: 1px;
+    position: absolute;
+    -webkit-user-select: none; 
+    -moz-user-select: none;   
+    -ms-user-select: none;
+    user-select: none;    
+    pointer-events: none;
+}
+
+@-webkit-keyframes animCloud {
+    from {
+        -webkit-transform: translateX(100%)
+    }
+    to {
+        -webkit-transform: translateX(-100%)
+    }
+}
+@-moz-keyframes animCloud {
+    from {
+        -moz-transform: translateX(100%)
+    }
+    to {
+        -moz-transform: translateX(-100%)
+    }
+}
+@keyframes animCloud {
+    from {
+        -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        -o-transform: translateX(100%);
+        transform: translateX(100%)
+    }
+    to {
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+        transform: translateX(-100%)
+    }
+}
+.cloud1 {
+    margin-top: -219px;
+    -webkit-animation: animCloud 40s infinite linear;
+    -moz-animation: animCloud 40s infinite linear;
+    animation: animCloud 40s infinite linear
+}
+.cloud2 {
+    margin-top: -646px;
+    -webkit-animation: animCloud 50s infinite linear;
+    -moz-animation: animCloud 50s infinite linear;
+    animation: animCloud 50s infinite linear
+}
+.cloud3 {
+    margin-top: -1500px;
+    -webkit-animation: animCloud 60s infinite linear;
+    -moz-animation: animCloud 60s infinite linear;
+    animation: animCloud 60s infinite linear
+}

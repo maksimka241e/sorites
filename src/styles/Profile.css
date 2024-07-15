@@ -1,0 +1,78 @@
+.BlockProfile{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+.MainProfile{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    min-height: 600px;
+}
+.sectionProfile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+.titleProfile{
+    text-align: center;
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+}
+.acticleProfile{
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.emailProfile{
+    font-size: 15px;
+    margin: 0;
+    padding-bottom: 3px;
+    color: #212121;
+    font-weight: 400;
+}
+.roleProfile{
+    font-size: 15px;
+    margin: 0;
+    padding-bottom: 3px;
+    color: #212121;
+    font-weight: 400;
+}
+.textProfile{
+    text-align: center;
+    margin-top: 10px;
+    color: #212121;
+    font-size: 15px;
+    font-weight: 400;
+}
+.buttonProfile{
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: 1px solid #646cff;
+    width: 30%;
+    background: #646cff;
+    color: #ffffff;
+    margin-top: 30px;
+    transition: all 0.4s;
+}
+.buttonProfile:hover{
+    border: 1px solid #646cff;
+    background: #ffffff;
+    color: #646cff;
+}
+.buttonProfile:focus{
+    border: 1px solid #646cff;
+    background: #ffffff;
+    color: #646cff;
+}

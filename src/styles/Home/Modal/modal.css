@@ -1,0 +1,30 @@
+.HomeModal{
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    height: 0px;
+    bottom: 5%;
+    right: 0;
+    margin-right: 30px;
+    transform: translateX(500px);
+    transition: 0.4s;
+}
+.HomeModalTitle{
+    background: #ededed;
+    color: #333333;
+    padding: 10px 20px;
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;
+}
+.active{
+    transform: translateX(0px);
+    transition: 0.4s;
+}
+.home_title_false{
+    color: red;
+}
+.home_title_true{
+    color: green;
+}
