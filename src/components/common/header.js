@@ -1,10 +1,13 @@
 import { Link, Outlet } from "react-router-dom";
 import { user } from "../../api/user";
 import '../../styles/common/header.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function Headers(){
     const [loading,setLoading] = useState(false)
+    useEffect(() => {
+        'ОК'
+    },[user.user])
     return(
         <header className="header">
         <div className="HeaderBlock1">

@@ -5,6 +5,7 @@ import { Link, Outlet } from "react-router-dom";
 import { RegisterUser, reg } from "../hooks/postsSlise";
 import '../styles/Login.css'
 import { Headers } from "../components/common/header";
+import { Footer } from "../components/common/footer";
 
 
 export function Reguster(){
@@ -41,6 +42,7 @@ export function Reguster(){
                 </form>
             </main>
             <Outlet/>
+            <Footer/>
         </div>
     )
 }
