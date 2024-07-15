@@ -15,7 +15,7 @@ async function register(data){
             const {error} = await supabase.from('users')
             .insert([{email: `${email}`,password: `${password}`}])
             .single()
-            document.location.replace('http://localhost:5173/?#/login')
+            document.location.replace('https://maksimka241e.github.io/sorites/#/login')
             document.location.reload()
             if (error) throw error
     } catch(e){
@@ -34,7 +34,7 @@ async function login(data){
         .select()
         .match({id:user.id})
         .single()
-        document.location.replace('http://localhost:5173/?#/profile')
+        document.location.replace('https://maksimka241e.github.io/sorites/#/profile')
         document.location.reload()
     }catch(e){
         throw e
@@ -44,7 +44,7 @@ async function login(data){
 async function logout(){
     try{
         const { error } = await supabase.auth.signOut()
-        document.location.replace('http://localhost:5173/?#/login')
+        document.location.replace('https://maksimka241e.github.io/sorites/#/login')
         if(error) throw error
         return null
     }catch(e){

@@ -8,7 +8,7 @@ export function Profile(){
     const dispatch = useDispatch() 
 
     if(user.user == null){
-        document.location.replace('http://localhost:5173/?#/login')
+        document.location.replace('https://maksimka241e.github.io/sorites/#/login')
     } 
 
     return(

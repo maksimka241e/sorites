@@ -16,7 +16,7 @@ export function Login(){
         useUsers({...users, ...{[prop]: event.target.value}})
     }
     if(user.user){
-        document.location.replace('http://localhost:5173/')
+        document.location.replace('https://maksimka241e.github.io/sorites/#/')
     }
 
     return(
