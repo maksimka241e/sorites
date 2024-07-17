@@ -1,8 +1,9 @@
+import '../../styles/About/main.css' 
 
 export function DeliveryMain(){
     return(
-        <div>
-            <h3>Доставка</h3>
+        <div className='AboutMain'>
+            <h3 >Доставка</h3>
             <p>Разместите на этой странице информацию с описанием способов доставки, которые использует ваш интернет-магазин.</p>
             <article>
                 <p>Например:</p>

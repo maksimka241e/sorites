@@ -11,7 +11,7 @@ export function FavouritesItem(){
         getAllFavourites()
     },[])
     useEffect(() => {
-        console.log(allFavourites.length);
+        console.log('добавлен');
     },[allFavourites])
     
     async function getAllFavourites(){
@@ -20,6 +20,7 @@ export function FavouritesItem(){
     }
     return(
         <div className="Basket"> 
+        {allFavourites.length === 0 ? <h3>Пусто</h3> : ''}
         {allFavourites.map((item,index) => (
             <article className="BasketBlock" key={index}>
                 <img className="BasketImg"  src={item.url} alt="img"/>

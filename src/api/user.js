@@ -1,8 +1,5 @@
-import { useState } from "react"
-import { HomeModal } from "../components/Home/modal/modal"
-import { deleteDates } from "../hooks/postsSlise"
+/* eslint-disable no-restricted-globals */
 import supabase from "../supabase"
-import { Home } from "../pages/Home"
 export const {data: user } = await supabase.auth.getUser()
 
 async function register(data){
@@ -15,8 +12,6 @@ async function register(data){
             const {error} = await supabase.from('users')
             .insert([{email: `${email}`,password: `${password}`}])
             .single()
-            document.location.replace('https://maksimka241e.github.io/sorites/#/login')
-            document.location.reload()
             if (error) throw error
     } catch(e){
         throw e
@@ -34,7 +29,7 @@ async function login(data){
         .select()
         .match({id:user.id})
         .single()
-        document.location.replace('https://maksimka241e.github.io/sorites/#/profile')
+        document.location.replace('https://maksimka241e.github.io/sorites/#/login')
         document.location.reload()
     }catch(e){
         throw e
@@ -44,7 +39,7 @@ async function login(data){
 async function logout(){
     try{
         const { error } = await supabase.auth.signOut()
-        document.location.replace('https://maksimka241e.github.io/sorites/#/login')
+        document.location.reload()
         if(error) throw error
         return null
     }catch(e){

@@ -1,7 +1,8 @@
+import '../../styles/About/main.css'
 
 export function AboutMain(){
     return(
-        <div>
+        <div className="AboutMain">
             <h3>О компании</h3>
             <p>Разместите на этой странице информацию с описанием вашего магазина.</p>
             <article>

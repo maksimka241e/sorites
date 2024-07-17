@@ -6,19 +6,31 @@ import { RegisterUser, reg } from "../hooks/postsSlise";
 import '../styles/Login.css'
 import { Headers } from "../components/common/header";
 import { Footer } from "../components/common/footer";
+import { RegisterModal } from "../components/Register/RegisterModal";
 
 
 export function Reguster(){
     const registers = useSelector(reg)
     const dispatch = useDispatch()
     const [users,useUsers] = useState(registers)
-    
+    const [modal,SetModal] = useState(false)
+
     function handleChange(prop,event){
         // eslint-disable-next-line react-hooks/rules-of-hooks
         useUsers({...users, ...{[prop]: event.target.value}})
     }
-
+    function RegisterUsers(){
+        dispatch(RegisterUser(users))
+        SetModal(true)
+    }
+    
+    modal === true ? 
+    setTimeout(() => {
+        SetModal(false)
+        document.location.replace('https://maksimka241e.github.io/sorites/#/login')
+        document.location.reload()},2000) : setTimeout(() => {SetModal(false)},100)
     return(
+        
         <div className="BlockRegister">
             <Headers/>
             <main className="mainLogin">
@@ -33,7 +45,7 @@ export function Reguster(){
                             <h5 className="passwordLogin">Пароль</h5>
                             <input className="inputLogin" type="password" onChange={i => handleChange('password', i)} value={users.password} minLength={'6'}/>
                         </article>
-                        <button className="buttonLogin"  onClick={() => dispatch(RegisterUser(users))}>Зарегистрироваться</button>
+                        <button className="buttonLogin"  onClick={() => RegisterUsers()}>Зарегистрироваться</button>
                         <h5 className="textLogin">Уже есть аккаунт? <Link to={'/login'}>Авторизоваться</Link></h5>
                     </section>
                         <img src="https://i.postimg.cc/FzDSMF94/cloud-01.png" alt="" className="cloud1"/>
@@ -43,6 +55,7 @@ export function Reguster(){
             </main>
             <Outlet/>
             <Footer/>
+            {modal === false ? '' : <RegisterModal/>}
         </div>
     )
 }

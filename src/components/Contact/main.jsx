@@ -1,7 +1,7 @@
-
+import '../../styles/About/main.css' 
 export function ContactMain(){
     return(
-        <div>
+        <div className='AboutMain'>
             <h3>Контакты</h3>
             <p>Разместите на этой странице информацию с контактами вашего интернет-магазина, а также краткую информацию о нем.</p>
             <article>

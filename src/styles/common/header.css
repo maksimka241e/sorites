@@ -188,5 +188,12 @@
     }
 }
 @media(max-width:450px){
+    .HeaderBlock1 {
+        width: 98%;
+    }
+    .headerImg {
+        max-width: 130px;
+        width: 100%;
+    }
     
 }

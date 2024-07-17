@@ -3,6 +3,18 @@
     flex-direction: column;
     gap: 30px;
 }
+.basketNone{
+    color: #333333;
+    margin: 15px 18px;
+}
+.basketTitle{
+    color: #333333;
+    font-size: 24px;
+    border-bottom: 1px solid #ededed;
+    padding: 0px 10px;
+    width: 150px;
+    margin: 10px 0 30px 18px;
+}
 .BasketBlock{
     display: flex;
     width: 98%;
@@ -21,6 +33,7 @@
     flex-direction: column;
     width: 90%;
 }
+
 .BasketTitle{
     font-size: 20px;
     color: #333333;
@@ -47,7 +60,12 @@
     transition: all 0.3s;
 }
 
-
-
-
-
+@media(max-width:450px){
+    .BasketBlock {
+        width: 95%;
+    }
+    .basketNone{
+        color: #333333;
+        text-align:center;
+    }
+}

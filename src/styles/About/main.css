@@ -1,0 +1,11 @@
+.AboutMain{
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+    margin: auto;
+}
+@media(max-width:500px){
+    .AboutMain p, li {
+        font-size: 15px;
+    }
+}

@@ -5,7 +5,8 @@ import { BasketItem } from "./basketItem";
 export function BasketMain(){
     return(
         <div>
-            {user.user != null ? <BasketItem/> : <h3>Автолизируйтесь чтобы добавить товар</h3>}
+            <h3 className="basketTitle">Корзина</h3>
+            {user.user != null ? <BasketItem/> : <h3 className="basketNone">Автолизируйтесь чтобы добавить товар</h3>}
         </div>
     )
 }

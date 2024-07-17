@@ -1,7 +1,8 @@
+import '../../styles/About/main.css' 
 
 export function PaymentMain(){
     return(
-    <div>
+    <div className='AboutMain'>
         <h3>Оплата</h3>
         <p>Разместите на этой странице информацию с описанием способов оплаты, которые использует ваш интернет-магазин.</p>
         <section>
