@@ -47,20 +47,6 @@ async function logout(){
     }
 }
 
-// async function update(){
-//     const user = supabase.auth.getUser()
-//     if(!user) return
-//     try{
-//         const {data: _user} = await supabase.from('users')
-//         .update(data)
-//         .match({id: user.id})
-//         .single()
-//         return _user
-//     }catch(e){
-//         throw e
-//     }
-// }
-
 async function shoppinCart(dates){
     const {price,title,url} = dates
     if(user.user != null){
@@ -73,10 +59,11 @@ async function shoppinCart(dates){
             return { data }
             
         }catch(e){
+            document.location.reload()
             throw e
         }
     }else{
-
+        alert('Автолизируйтесь')
     }
 }
 
@@ -98,10 +85,11 @@ async function shoppinFavourites(dates){
             if(error) throw error
             return { data }
         }catch(e){
+            document.location.reload()
             throw e
         }
     }else{
-
+        alert('Автолизируйтесь')
     }
 }
 

@@ -1,10 +1,10 @@
-import { user } from "../../../api/user";
+
 import '../../../styles/Home/Modal/modal.css'
 
-export function HomeModal(bool,name){
+export function HomeModal(){
     return(
-        <div className={`HomeModal ${name}`}  >
-            <div>{user.user != null ? bool == true ? <h3 className="HomeModalTitle home_title_true ">Добавлено</h3> : <h3 className="HomeModalTitle home_title_false ">Попробуйте еще</h3> : <h3 className="HomeModalTitle home_title_false">Автолизируйтесь чтобы добавлять товар</h3>}</div>     
+        <div className={`HomeModal`}  >
+            <h3 className='HomeModal_title'>Добавленно</h3>
         </div>
     )
 }

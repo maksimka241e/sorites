@@ -10,6 +10,9 @@ import { Contact } from './pages/Contact'
 import { Delivery } from './pages/Delivery'
 import { Basket } from './pages/Basket'
 import { Favourites } from './pages/Favourites'
+import { Development } from './pages/Development'
+import { KatalogMen } from './pages/KatalogMen'
+import { KatalogWomen } from './pages/KatalogWomen'
 
 function App() {
 
@@ -27,6 +30,10 @@ function App() {
           <Route path='/delivery' element={<Delivery/>}/>
           <Route path='/basket' element={<Basket/>}/>
           <Route path='/favourites' element={<Favourites/>}/>
+          <Route path='/katalog/Men' element={<Development/>}/>
+          <Route path='/katalog/Women' element={<Development/>}/>
+          <Route path='/katalog/Women/:id' element={<KatalogWomen/>}/>
+          <Route path='/katalog/Men/:id' element={<KatalogMen/>}/>
       </Routes>
     </div>
   )

@@ -44,5 +44,4 @@ export const postsReducer = createSlice({
 })
 
 export const { createDates, deleteDates,RegisterUser,LoginUser,LogoutUser,ShoppinCart,GetBasket,DeleteCart,ShoppinFavourites,DeleteFavourites } = postsReducer.actions
-export const posts = state => state.postses
 export const reg = state => state.datesReg

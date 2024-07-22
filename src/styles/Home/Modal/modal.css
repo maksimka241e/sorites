@@ -5,26 +5,19 @@
     justify-content: center;
     height: 0px;
     bottom: 5%;
-    right: 0;
+    right: 48%;
+    left: 48%;
     margin-right: 30px;
-    transform: translateX(500px);
     transition: 0.4s;
 }
-.HomeModalTitle{
+.HomeModal_title{
     background: #ededed;
     color: #333333;
     padding: 10px 20px;
     width: 300px;
+    border: 1px solid #ededed;
     text-align: center;
     border-radius: 10px;
-}
-.active{
-    transform: translateX(0px);
     transition: 0.4s;
-}
-.home_title_false{
-    color: red;
-}
-.home_title_true{
-    color: green;
+    animation:  anim 2s ease-in-out infinite;
 }

@@ -1,0 +1,28 @@
+.Development_title{
+    font-size: 25px;
+    color: #333333;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-align: center;
+    animation: anim1 2s ease-in-out infinite;
+}
+.Development{
+    display: flex;
+    width: 98%;
+    margin: auto;
+    min-height: 500px;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes anim1 {
+    0%{
+    }
+    10%{
+        color: #de0b0b;
+        transform: scale(0.99);
+        -webkit-transform: scale(0.99);
+        -moz-transform: scale(0.99);
+        -o-transform: scale(0.99);
+        -ms-transform: scale(0.99);
+    }
+}

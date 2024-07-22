@@ -1,0 +1,37 @@
+.Payment_modalBlock {
+    display: flex;
+    max-width: 1308px;
+    width: 95%;
+    padding: 15px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    transition: all 0.6s;
+    z-index: 99999;
+    opacity: 1;
+    background: #fff;
+    min-height: 600px;
+    height: auto;
+    border-radius: 5px;
+}
+.Payment_modalDiv{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Payment_modalArticleBlock{
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.Payment_modalArticleBlock1{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+@media(max-width:830px){
+
+}
