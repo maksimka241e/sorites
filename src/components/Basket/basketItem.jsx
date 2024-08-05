@@ -14,9 +14,6 @@ export function BasketItem() {
   useEffect(() => {
     getAllBasket()
   }, [])
-  useEffect(() => {
-    console.log(allBasket.length)
-  }, [allBasket])
 
   async function getAllBasket() {
     const { data } = await supabase.from('basket').select().eq('email', user.user.email)

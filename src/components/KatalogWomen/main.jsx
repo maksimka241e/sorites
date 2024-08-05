@@ -3,9 +3,9 @@ import { Link, Outlet } from 'react-router-dom'
 import datesAll from '../../links/home/alldatesImg'
 import { useState } from 'react'
 import '../../styles/KatalogAll/main.css'
+import { Specifications } from '../KatalogMen/specifications'
 import { useDispatch } from 'react-redux'
 import { ShoppinCart, ShoppinFavourites } from '../../hooks/postsSlise'
-import { Specifications } from '../KatalogMen/specifications'
 
 export function KatalogWomenMain({ id }) {
   const [specifications, SetSpecifications] = useState(false)
@@ -19,7 +19,6 @@ export function KatalogWomenMain({ id }) {
   function AddItemBasket(item) {
     dispatch(ShoppinCart(item))
   }
-
   return (
     <div className='KatalogMenMain KatalogAllMain'>
       <article className='KatalogAllArticle'>

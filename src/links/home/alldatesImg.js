@@ -67,7 +67,7 @@ const tabsImgMen = [
     composition: 'Хлопок',
   },
   {
-    title: ' Джинсовая куртка голубая',
+    title: 'Джинсовая куртка голубая',
     url: 'https://static.insales-cdn.com/r/l0w701y_Fzc/rs:fit:440:0:1/plain/images/products/1/3648/423415360/large_Rectangle-5.jpg@webp',
     price: '2 990',
     country: 'Португалия',
