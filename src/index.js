@@ -6,9 +6,9 @@ import './index.css'
 import { Provider } from 'react-redux'
 import App from './App'
 import { configureStore } from '@reduxjs/toolkit'
-import { postsReducer } from './hooks/postsSlise'
+import { BasketReducer } from './hooks/postsSlise'
 
-const stores = configureStore(postsReducer)
+const stores = configureStore(BasketReducer)
 
 const router = createHashRouter([
   {

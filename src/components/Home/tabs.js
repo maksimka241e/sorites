@@ -1,36 +1,23 @@
 /* eslint-disable import/order */
-import datesAll from '../../links/home/alldatesImg'
 import { Tabs } from 'flowbite-react'
 import '../../styles/Home/tabs.css'
-import { useDispatch } from 'react-redux'
-import { ShoppinFavourites } from '../../hooks/postsSlise'
-import { useState } from 'react'
-import { HomeModal } from './modal/modal'
-import { user } from '../../api/user'
+import { useEffect } from 'react'
 import { Link, Outlet } from 'react-router-dom'
+import { useStoryRepository } from '../../repositories/StoryRepository'
 
 export function HomeTabs() {
-  const dispatch = useDispatch()
-  const [modal, SetModal] = useState(false)
-  modal === true
-    ? setTimeout(() => {
-        SetModal(false)
-      }, 1400)
-    : setTimeout(() => {
-        SetModal(false)
-      }, 100)
-
-  function AddItemfavorites(item) {
-    dispatch(ShoppinFavourites(item))
-    user.user !== null ? SetModal(true) : SetModal(false)
-  }
+  const { oneProducts, twoProducts, getOneProducts, getTwoProducts, AddItemfavorites } = useStoryRepository()
+  useEffect(() => {
+    getOneProducts()
+    getTwoProducts()
+  }, [getOneProducts, getTwoProducts])
 
   return (
     <div className='home_tabsBlock'>
       <Tabs variant='underline'>
         <Tabs.Item active title='Мужчинам'>
           <div className='home_tabsTabBlockMen'>
-            {datesAll.tabsImgMen.map((item, index) => (
+            {oneProducts.map((item, index) => (
               <article key={index} className='home_tabsTabAcrticle'>
                 <img
                   className='home_favourites'
@@ -58,7 +45,7 @@ export function HomeTabs() {
         </Tabs.Item>
         <Tabs.Item title='Женщинам'>
           <div className='home_tabsTabBlockWomen'>
-            {datesAll.tabsImgWomen.map((item, index) => (
+            {twoProducts.map((item, index) => (
               <article key={index} className='home_tabsTabAcrticle'>
                 <img
                   className='home_favourites'
@@ -86,7 +73,7 @@ export function HomeTabs() {
         </Tabs.Item>
       </Tabs>
       <Outlet />
-      {modal === false ? '' : <HomeModal />}
+      {/* {modal === false ? '' : <HomeModal />} */}
     </div>
   )
 }

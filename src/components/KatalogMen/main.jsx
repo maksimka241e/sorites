@@ -1,24 +1,15 @@
 /* eslint-disable import/order */
 import { Link, Outlet } from 'react-router-dom'
-import datesAll from '../../links/home/alldatesImg'
 import { useState } from 'react'
 import '../../styles/KatalogAll/main.css'
 import { Specifications } from './specifications'
-import { useDispatch } from 'react-redux'
-import { ShoppinCart, ShoppinFavourites } from '../../hooks/postsSlise'
+import { useStoryRepository } from '../../repositories/StoryRepository'
 
 export function KatalogMenMain({ id }) {
+  const { oneProducts, AddItemfavorites, AddItemBasket } = useStoryRepository()
   const [specifications, SetSpecifications] = useState(false)
   const [reviews, SetReviews] = useState(false)
-  const cart = datesAll.tabsImgMen[id]
-  const dispatch = useDispatch()
-
-  function AddItemfavorites(item) {
-    dispatch(ShoppinFavourites(item))
-  }
-  function AddItemBasket(item) {
-    dispatch(ShoppinCart(item))
-  }
+  const cart = oneProducts[id]
 
   return (
     <div className='KatalogMenMain KatalogAllMain'>
@@ -73,7 +64,7 @@ export function KatalogMenMain({ id }) {
       <article className='KatalogSimilarBlock'>
         <h3 className='KatalogSimilarTitle'>Аналогичные товары</h3>
         <div className='KatalogSimilarBlock1'>
-          {datesAll.tabsImgMen.map((item, index) => (
+          {oneProducts.map((item, index) => (
             <article className='KatalogSimilarBlock2' key={index}>
               <Link to={`/katalog/Men/${index}`}>
                 <img className='KatalogSimilarImg' src={item.url} alt='' />
