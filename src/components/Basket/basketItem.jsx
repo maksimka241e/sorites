@@ -1,13 +1,21 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
+import { datesBasket } from '../../hooks/postsSlise'
+import StoryRepository from '../../repositories/StoryRepository'
 import '../../styles/Basket/main.css'
-import { useStoryRepository } from '../../repositories/StoryRepository'
 
 export function BasketItem() {
-  const { basket, getBaskets, AddItemfavorites, DeleteItemBasket } = useStoryRepository()
+  const dispatch = useDispatch()
+  const basket = useSelector(datesBasket)
+  const [initialDataFetched, setInitialDataFetched] = useState(false)
+
   useEffect(() => {
-    getBaskets()
-  }, [getBaskets])
+    if (!initialDataFetched) {
+      StoryRepository.getBasket(dispatch)
+      setInitialDataFetched(true)
+    }
+  }, [initialDataFetched])
 
   return (
     <div className='Basket'>
@@ -27,11 +35,11 @@ export function BasketItem() {
             src='https://i.postimg.cc/rprzgXC5/icons8-heart-48.png'
             className='BasketBtn'
             width='25px'
-            onClick={() => AddItemfavorites(item)}
+            onClick={() => StoryRepository.addfavourites(dispatch, item)}
             height='25px'
             alt=''
           />
-          <button className='BasketBtn' onClick={() => DeleteItemBasket(item.id)}>
+          <button className='BasketBtn' onClick={() => StoryRepository.deletebasket(dispatch, { id: item.id, index })}>
             <img src='https://i.postimg.cc/fL7yncPL/icons8-trash-48-1.png' width='24px' height='24px' alt='' />
           </button>
         </article>

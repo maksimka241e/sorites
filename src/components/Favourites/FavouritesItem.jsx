@@ -1,12 +1,20 @@
-/* eslint-disable import/order */
-import { useEffect } from 'react'
-import { useStoryRepository } from '../../repositories/StoryRepository'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { datesFavourites } from '../../hooks/postsSlise'
+import StoryRepository from '../../repositories/StoryRepository'
 
 export function FavouritesItem() {
-  const { favourites, DeleteItemFavourites, getFavourites } = useStoryRepository()
+  const favourites = useSelector(datesFavourites)
+  const dispatch = useDispatch()
+  const [initialDataFetched, setInitialDataFetched] = useState(false)
+
   useEffect(() => {
-    getFavourites()
-  }, [getFavourites])
+    if (!initialDataFetched) {
+      StoryRepository.getFavourites(dispatch)
+      setInitialDataFetched(true)
+    }
+  }, [initialDataFetched])
 
   return (
     <div className='Basket'>
@@ -22,7 +30,10 @@ export function FavouritesItem() {
               {item.price} ₽/шт
             </p>
           </article>
-          <button className='BasketBtn' onClick={() => DeleteItemFavourites(item.id)}>
+          <button
+            className='BasketBtn'
+            onClick={() => StoryRepository.deletefavourites(dispatch, { id: item.id, index })}
+          >
             <img src='https://i.postimg.cc/fL7yncPL/icons8-trash-48-1.png' width='24px' height='24px' alt='' />
           </button>
         </article>

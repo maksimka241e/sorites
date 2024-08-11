@@ -1,13 +1,18 @@
 import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { useStoryRepository } from '../../repositories/StoryRepository'
 import '../../styles/Home/gallery.css'
+import { datesGallery } from '../../hooks/postsSlise'
+import StoryRepository from '../../repositories/StoryRepository'
 
 export function HomeGallery() {
-  const { gallery, getGallery } = useStoryRepository()
+  const dispatch = useDispatch()
+  const gallery = useSelector(datesGallery)
   useEffect(() => {
-    getGallery()
-  }, [getGallery])
+    if (gallery.length === 0) {
+      StoryRepository.getGallery(dispatch)
+    }
+  }, [])
 
   return (
     <div className='home_galleryBlock'>
