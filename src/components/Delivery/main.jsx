@@ -1,4 +1,5 @@
 import '../../styles/About/main.css'
+import datesDelivery from './data'
 
 export function DeliveryMain() {
   return (
@@ -11,28 +12,20 @@ export function DeliveryMain() {
         <p>Например:</p>
         <p>Наш интернет-магазин осуществляет доставку по Москве и регионам России:</p>
         <ul>
-          <li>Курьерская доставка по Москве — 200 руб. </li>
-          <li>Самовывоз из нашего пункта выдачи или розничного магазина – бесплатно!</li>
-          <li>Почтовая доставка по России — от 150 руб. в зависимости от адреса доставки.</li>
+          {datesDelivery.ForExample.map((item) => (
+            <li key={item.text}>{item.text}</li>
+          ))}
         </ul>
         <p>Сроки доставки:</p>
         <ul>
-          <li>Курьерская доставка по Москве – на следующий день</li>
-          <li>Самовывоз – на следующий день</li>
-          <li>Почтовая доставка по России – от 3 до 14 дней в зависимости от региона</li>
+          {datesDelivery.DeliveryTime.map((item) => (
+            <li key={item.text}>{item.text}</li>
+          ))}
         </ul>
-        <p>Почтовая доставка по России – от 3 до 14 дней в зависимости от региона</p>
       </article>
-      <p>Эту страницу можно отредактировать в бэк-офисе сайта в разделе Меню и страницы.</p>
-      <p>
-        Подробнее о создании текстовых страниц и меню, читайте в документации:
-        https://www.insales.ru/collection/doc-settings/product/razdel-menyu
-      </p>
-      <p>Настроить расчёт стоимости доставки при оформлении заказа можно настроить в разделе Настройки - Доставка.</p>
-      <p>
-        Подробнее о настройке способов доставки, читайте в документации:
-        https://www.insales.ru/collection/doc-delivery/product/dostavka
-      </p>
+      {datesDelivery.PostalDelivery.map((item) => (
+        <p key={item.text}>{item.text}</p>
+      ))}
     </div>
   )
 }
