@@ -27,8 +27,7 @@ async function login(data) {
     })
     if (error) throw error
     const { data: _user } = await supabase.from('users').select().match({ id: user.id }).single()
-    document.location.replace('https://maksimka241e.github.io/sorites/#/login')
-    document.location.reload()
+    // 'https://maksimka241e.github.io/sorites/#/login'
   } catch (e) {
     throw e
   }
@@ -37,7 +36,6 @@ async function login(data) {
 async function logout() {
   try {
     const { error } = await supabase.auth.signOut()
-    document.location.reload()
     if (error) throw error
     return null
   } catch (e) {
@@ -57,17 +55,15 @@ async function shoppinCart(dates) {
       if (error) throw error
       return { data }
     } catch (e) {
-      document.location.reload()
       throw e
     }
   } else {
-    alert('Автолизируйтесь')
+    return
   }
 }
 
 async function deleteCart(index) {
   const { data, error } = await supabase.from('basket').delete().eq('id', index)
-  document.location.reload()
 }
 
 async function shoppinFavourites(dates) {
@@ -82,21 +78,16 @@ async function shoppinFavourites(dates) {
       if (error) throw error
       return { data }
     } catch (e) {
-      document.location.reload()
       throw e
     }
   } else {
-    alert('Автолизируйтесь')
+    return
   }
 }
 
 async function deleteFavourites(index) {
   const { data, error } = await supabase.from('favourites').delete().eq('id', index)
-  document.location.reload()
 }
 
 const userApi = { register, login, logout, shoppinCart, deleteCart, shoppinFavourites, deleteFavourites }
 export default userApi
-//  const newBasket = basket.filter((item, index) => index !== indexs)
-//  {modal === false ? '' : <FavModal/>}
-// modal === true ? setTimeout(() => {SetModal(false)},1400) : setTimeout(() => {SetModal(false)},100)

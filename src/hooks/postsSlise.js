@@ -1,44 +1,70 @@
 /* eslint-disable import/order */
 import { createSlice } from '@reduxjs/toolkit'
-import userApi, { user } from '../api/user'
+import userApi from '../api/user'
 
-export const postsReducer = createSlice({
-  name: 'posts',
-  initialState: {
-    datesReg: {
-      email: '',
-      password: '',
-    },
+const initialState = {
+  datesReg: {
+    email: '',
+    password: '',
   },
+  basket: [],
+  favourites: [],
+  oneProducts: [],
+  twoProducts: [],
+  gallery: [],
+}
+
+export const BasketReducer = createSlice({
+  name: 'Basket',
+  initialState,
   reducers: {
     RegisterUser(type, action) {
       if (action.payload.email.length > 16 && action.payload.password.length > 6) {
-        userApi.register(action.payload)
+        return userApi.register(action.payload)
       } else if (action.payload.email.length === 0 && action.payload.password.length === 0) {
         alert('пусто, введите данные')
       }
     },
     LoginUser(type, action) {
       if (action.payload.email.length > 14 && action.payload.password.length > 6) {
-        userApi.login(action.payload)
+        return userApi.login(action.payload)
       } else if (action.payload.email.length === 0 && action.payload.password.length === 0) {
         alert('пусто, введите данные')
       }
     },
     LogoutUser(type, action) {
-      userApi.logout()
+      return userApi.logout()
+    },
+    SetBasket(state, action) {
+      state.basket = action.payload // Обновляем состояние basket
+    },
+    SetOneProducts(state, action) {
+      state.oneProducts = action.payload // Обновляем состояние oneProducts
+    },
+    SetTwoProducts(state, action) {
+      state.twoProducts = action.payload // Обновляем состояние twoProducts
+    },
+    SetGallery(state, action) {
+      state.gallery = action.payload // Обновляем состояние gallery
+    },
+    SetFavourites(state, action) {
+      state.favourites = action.payload // Обновляем состояние gallery
     },
     ShoppinCart(type, action) {
       userApi.shoppinCart(action.payload)
     },
-    DeleteCart(type, action) {
-      userApi.deleteCart(action.payload)
+    DeleteCart(state, action) {
+      const { id, index } = action.payload
+      userApi.deleteCart(id)
+      state.basket.splice(index, 1)
     },
     ShoppinFavourites(type, action) {
       userApi.shoppinFavourites(action.payload)
     },
-    DeleteFavourites(type, action) {
-      userApi.deleteFavourites(action.payload)
+    DeleteFavourites(state, action) {
+      const { id, index } = action.payload
+      userApi.deleteFavourites(id)
+      state.favourites.splice(index, 1)
     },
   },
 })
@@ -50,9 +76,18 @@ export const {
   LoginUser,
   LogoutUser,
   ShoppinCart,
-  GetBasket,
+  SetBasket,
+  SetOneProducts,
+  SetTwoProducts,
+  SetGallery,
+  SetFavourites,
   DeleteCart,
   ShoppinFavourites,
   DeleteFavourites,
-} = postsReducer.actions
+} = BasketReducer.actions
 export const reg = (state) => state.datesReg
+export const datesBasket = (state) => state.basket
+export const datesOneProducts = (state) => state.oneProducts
+export const datesTwoProducts = (state) => state.twoProducts
+export const datesGallery = (state) => state.gallery
+export const datesFavourites = (state) => state.favourites

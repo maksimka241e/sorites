@@ -14,7 +14,6 @@ import { Favourites } from './pages/Favourites'
 import { Development } from './pages/Development'
 import { KatalogMen } from './pages/KatalogMen'
 import { KatalogWomen } from './pages/KatalogWomen'
-
 function App() {
   return (
     <div>

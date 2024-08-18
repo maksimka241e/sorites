@@ -1,28 +1,25 @@
-/* eslint-disable import/order */
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { user } from '../../api/user'
-import supabase from '../../supabase'
-import { DeleteFavourites } from '../../hooks/postsSlise'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { datesFavourites } from '../../hooks/postsSlise'
+import StoryRepository from '../../repositories/StoryRepository'
 
 export function FavouritesItem() {
-  const [allFavourites, SetAllFavourites] = useState([])
+  const favourites = useSelector(datesFavourites)
   const dispatch = useDispatch()
-  useEffect(() => {
-    getAllFavourites()
-  }, [])
-  useEffect(() => {
-    console.log('добавлен')
-  }, [allFavourites])
+  const [initialDataFetched, setInitialDataFetched] = useState(false)
 
-  async function getAllFavourites() {
-    const { data } = await supabase.from('favourites').select().eq('email', user.user.email)
-    SetAllFavourites(data)
-  }
+  useEffect(() => {
+    if (!initialDataFetched) {
+      StoryRepository.getFavourites(dispatch)
+      setInitialDataFetched(true)
+    }
+  }, [initialDataFetched])
+
   return (
     <div className='Basket'>
-      {allFavourites.length === 0 ? <h3>Пусто</h3> : ''}
-      {allFavourites.map((item, index) => (
+      {favourites.length === 0 ? <h3>Пусто</h3> : ''}
+      {favourites.map((item, index) => (
         <article className='BasketBlock' key={index}>
           <img className='BasketImg' src={item.url} alt='img' />
           <article className='BasketBlock1'>
@@ -33,7 +30,10 @@ export function FavouritesItem() {
               {item.price} ₽/шт
             </p>
           </article>
-          <button className='BasketBtn' onClick={() => dispatch(DeleteFavourites(item.id))}>
+          <button
+            className='BasketBtn'
+            onClick={() => StoryRepository.deletefavourites(dispatch, { id: item.id, index })}
+          >
             <img src='https://i.postimg.cc/fL7yncPL/icons8-trash-48-1.png' width='24px' height='24px' alt='' />
           </button>
         </article>
