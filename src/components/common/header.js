@@ -6,9 +6,10 @@ import { useEffect, useState } from 'react'
 
 export function Headers() {
   const [loading, setLoading] = useState(false)
+  const token = user.user
   useEffect(() => {
-    'ОК'
-  }, [user.user])
+    'f'
+  }, [token])
   return (
     <header className='header'>
       <div className='HeaderBlock1'>
@@ -78,7 +79,7 @@ export function Headers() {
               />
             </Link>
           </nav>
-          {user.user !== null ? (
+          {token !== null ? (
             <Link to={'/profile'}>
               <img className='favouritesProfile' src='https://i.postimg.cc/fThscFYx/user-profile-14660.png' alt='' />
             </Link>
@@ -110,26 +111,3 @@ export function Headers() {
     </header>
   )
 }
-
-{
-  /* <nav>
-                    <Link to={'/'}><img src="https://static.insales-cdn.com/files/1/6700/16398892/original/logo-stories.svg" alt=''/></Link>
-                </nav>
-                <nav className="nav_HomeLink"> 
-                <h3><Link to={'/basket'}><img src="https://img.icons8.com/?size=25&id=ii6Lr4KivOiE&format=png&color=646CFF" alt=""/></Link></h3>
-                {user.user !== null  
-                   ? <h3><Link to={'/profile'}>Профиль</Link></h3> 
-                   : <>
-                    <h3><Link to={'/register'}>Регистрация</Link></h3>
-                    <h3><Link to={'/login'}>Вход</Link></h3>
-                    </>}     
-                </nav> */
-}
-
-// <nav className="nav_HomeLink">
-//                     <h3><Link to={'/'}>Каталог</Link></h3>
-//                     <h3><Link to={'/create'}>О компании</Link></h3>
-//                     <h3><Link to={'/About'}>Контакты</Link></h3>
-//                     <h3><Link to={'/About'}>Доставка</Link></h3>
-//                 </nav>
-//                 <div onClick={() => setLoading(!loading)}></div>

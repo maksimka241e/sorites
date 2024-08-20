@@ -1,6 +1,7 @@
 /* eslint-disable import/order */
 import { createSlice } from '@reduxjs/toolkit'
 import userApi from '../api/user'
+import { commonWindowsFalse, commonWindowsTrue } from '../components/common/modalWindows'
 
 const initialState = {
   datesReg: {
@@ -22,17 +23,19 @@ export const BasketReducer = createSlice({
       if (action.payload.email.length > 16 && action.payload.password.length > 6) {
         return userApi.register(action.payload)
       } else if (action.payload.email.length === 0 && action.payload.password.length === 0) {
-        alert('пусто, введите данные')
+        commonWindowsFalse('Заполните данные')
       }
     },
     LoginUser(type, action) {
       if (action.payload.email.length > 14 && action.payload.password.length > 6) {
         return userApi.login(action.payload)
       } else if (action.payload.email.length === 0 && action.payload.password.length === 0) {
-        alert('пусто, введите данные')
+        commonWindowsFalse('Заполните данные')
       }
     },
     LogoutUser(type, action) {
+      commonWindowsTrue('Вы вышли из профиля')
+      setTimeout(() => document.location.reload(), 2050)
       return userApi.logout()
     },
     SetBasket(state, action) {
@@ -57,6 +60,7 @@ export const BasketReducer = createSlice({
       const { id, index } = action.payload
       userApi.deleteCart(id)
       state.basket.splice(index, 1)
+      commonWindowsTrue('Товар Удалён')
     },
     ShoppinFavourites(type, action) {
       userApi.shoppinFavourites(action.payload)
@@ -65,6 +69,7 @@ export const BasketReducer = createSlice({
       const { id, index } = action.payload
       userApi.deleteFavourites(id)
       state.favourites.splice(index, 1)
+      commonWindowsTrue('Товар Удалён')
     },
   },
 })
