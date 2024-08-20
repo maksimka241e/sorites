@@ -1,16 +1,21 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import '../../styles/Home/gallery.css'
 import { datesGallery } from '../../hooks/postsSlise'
 import StoryRepository from '../../repositories/StoryRepository'
+import { commonWindowsFalse } from '../common/modalWindows'
 
 export function HomeGallery() {
   const dispatch = useDispatch()
   const gallery = useSelector(datesGallery)
   useEffect(() => {
-    if (gallery.length === 0) {
-      StoryRepository.getGallery(dispatch)
+    try {
+      if (gallery.length === 0) {
+        StoryRepository.getGallery(dispatch)
+      }
+    } catch (e) {
+      commonWindowsFalse('Обновите страницу')
     }
   }, [])
 
