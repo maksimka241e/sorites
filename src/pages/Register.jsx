@@ -7,13 +7,10 @@ import { RegisterUser, reg } from '../hooks/postsSlise'
 import '../styles/Login.css'
 import { Headers } from '../components/common/header'
 import { Footer } from '../components/common/footer'
-import { RegisterModal } from '../components/Register/RegisterModal'
-
 export function Reguster() {
   const registers = useSelector(reg)
   const dispatch = useDispatch()
   const [users, useUsers] = useState(registers)
-  const [modal, SetModal] = useState(false)
 
   function handleChange(prop, event) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -21,18 +18,7 @@ export function Reguster() {
   }
   function RegisterUsers() {
     dispatch(RegisterUser(users))
-    SetModal(true)
   }
-
-  modal === true
-    ? setTimeout(() => {
-        SetModal(false)
-        document.location.replace('https://maksimka241e.github.io/sorites/#/login')
-        document.location.reload()
-      }, 2000)
-    : setTimeout(() => {
-        SetModal(false)
-      }, 100)
   return (
     <div className='BlockRegister'>
       <Headers />
@@ -74,7 +60,6 @@ export function Reguster() {
       </main>
       <Outlet />
       <Footer />
-      {modal === false ? '' : <RegisterModal />}
     </div>
   )
 }

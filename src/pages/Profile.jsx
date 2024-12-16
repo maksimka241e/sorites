@@ -8,7 +8,7 @@ import { Footer } from '../components/common/footer'
 export function Profile() {
   const dispatch = useDispatch()
 
-  if (user.user == null) {
+  if (user.user === null) {
     document.location.replace('https://maksimka241e.github.io/sorites/#/login')
   }
 
